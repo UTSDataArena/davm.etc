@@ -40,26 +40,27 @@
 # Also - paths in the PATH_PRE_LIST are pre-pended one at a time, so end up appearing
 # in the PATH in the reverse order listed below..
 #
+##PATH_PRE_LIST="\
+##/opt/vmware/bin	\
+##/da/sw/equalizer/bin \
+##/usr/local/bin \
+##/mnt/central/bin \
 PATH_PRE_LIST="\
-/opt/vmware/bin	\
-/da/sw/equalizer/bin \
-/usr/local/bin \
-/mnt/central/bin \
 $HOME/bin \
 "
 
+##PATH_POST_LIST="\
+##/usr/lib64/misc/xscreensaver \
+##/opt/bin \
+##/opt/visit/bin \
+##/da/sw/osg/install/bin \
+##/da/demo/bin \
+##/da/bin
 PATH_POST_LIST="\
-/usr/lib64/misc/xscreensaver \
-/opt/bin \
-/opt/visit/bin \
-/da/demo/bin \
-/da/bin
+/local/omegalib/install/omegalib/bin \
 "
 # was before /da/sw/osg/install/bin:
 # /da/sw/omegalib/bin
-
-# was after /opt/bin, removed
-## /da/sw/osg/install/bin \
 
 # add to front of PATH
 for P in $PATH_PRE_LIST ; do
@@ -83,16 +84,20 @@ done
 #
 # put /usr/local/ in front, so any lib there will override [ben 7Apr15]
 #
+##LD_PATH_LIST="\
+##/usr/local/lib \
+##/usr/local/lib64 \
+##/lib \
+##/lib64 \
+##/usr/lib \
+##/usr/lib64 \
+##/usr/lib64/opengl/xorg-x11/lib \
 LD_PATH_LIST="\
-/usr/local/lib \
-/usr/local/lib64 \
-/lib \
-/lib64 \
-/usr/lib \
-/usr/lib64 \
-/usr/lib64/opengl/xorg-x11/lib \
-/da/sw/equalizer/lib \
+/local/omegalib/install/omegalib/bin \
+/local/omegalib/install/omegalib/bin/osgPlugins-3.3.8 \
 "
+#/da/sw/equalizer/lib \
+#"
 # was before /da/sw/osg/install/lib:
 # /da/sw/omegalib/bin \
 # /da/sw/omegalib/bin/osg \
@@ -111,8 +116,8 @@ for P in $LD_PATH_LIST ; do
 done
 
 ## Additional OSG paths:
-OSG_FILE_PATH=/da/sw/osg/OpenSceneGraph-Data
-OSG_ROOT=/da/sw/osg/install/
+##OSG_FILE_PATH=/da/sw/osg/OpenSceneGraph-Data
+##OSG_ROOT=/da/sw/osg/install/
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - -

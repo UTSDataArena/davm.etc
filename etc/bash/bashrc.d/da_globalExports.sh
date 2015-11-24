@@ -22,7 +22,8 @@ esac
 
 # Data directory for OpenSceneGraph examples
 # [Darren 22May14]
-export OSG_FILE_PATH=/da/sw/osg/OpenSceneGraph-Data
+## Removed [Darren 3Aug15]
+##export OSG_FILE_PATH=/da/sw/osg/OpenSceneGraph-Data
 
 
 # Set definitions file for bc(1)
