@@ -58,6 +58,7 @@ $HOME/bin \
 ##/da/bin
 PATH_POST_LIST="\
 /local/omegalib/install/omegalib/bin \
+/local/Equalizer/install/bin \
 "
 # was before /da/sw/osg/install/bin:
 # /da/sw/omegalib/bin
@@ -95,6 +96,7 @@ done
 LD_PATH_LIST="\
 /local/omegalib/install/omegalib/bin \
 /local/omegalib/install/omegalib/bin/osgPlugins-3.3.8 \
+/local/Equalizer/install/lib \
 "
 #/da/sw/equalizer/lib \
 #"
