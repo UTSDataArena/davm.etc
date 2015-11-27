@@ -40,29 +40,15 @@
 # Also - paths in the PATH_PRE_LIST are pre-pended one at a time, so end up appearing
 # in the PATH in the reverse order listed below..
 #
-##PATH_PRE_LIST="\
-##/opt/vmware/bin	\
-##/da/sw/equalizer/bin \
-##/usr/local/bin \
-##/mnt/central/bin \
 PATH_PRE_LIST="\
 $HOME/bin \
 "
 
-##PATH_POST_LIST="\
-##/usr/lib64/misc/xscreensaver \
-##/opt/bin \
-##/opt/visit/bin \
-##/da/sw/osg/install/bin \
-##/da/demo/bin \
-##/da/bin
 PATH_POST_LIST="\
 /local/omegalib/install/omegalib/bin \
 /local/Equalizer/install/bin \
+/local/bino/install/bin
 "
-# was before /da/sw/osg/install/bin:
-# /da/sw/omegalib/bin
-
 # add to front of PATH
 for P in $PATH_PRE_LIST ; do
 	if [ -d $P ]; then
@@ -98,16 +84,6 @@ LD_PATH_LIST="\
 /local/omegalib/install/omegalib/bin/osgPlugins-3.3.8 \
 /local/Equalizer/install/lib \
 "
-#/da/sw/equalizer/lib \
-#"
-# was before /da/sw/osg/install/lib:
-# /da/sw/omegalib/bin \
-# /da/sw/omegalib/bin/osg \
-# /da/sw/omegalib/bin/osg/osgPlugins-3.3.0 \
-
-# before equalizer/lib
-# /da/sw/osg/install/lib \
-# /da/sw/osg/install/lib/osgPlugins-3.3.1 \
 
 # append dirs to LD_LIBRARY_PATH
 for P in $LD_PATH_LIST ; do
@@ -116,10 +92,6 @@ for P in $LD_PATH_LIST ; do
 		pathappend $P LD_LIBRARY_PATH
 	fi
 done
-
-## Additional OSG paths:
-##OSG_FILE_PATH=/da/sw/osg/OpenSceneGraph-Data
-##OSG_ROOT=/da/sw/osg/install/
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - -

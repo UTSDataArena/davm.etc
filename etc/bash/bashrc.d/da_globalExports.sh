@@ -20,12 +20,6 @@ case $DA_HOST in
 esac
 
 
-# Data directory for OpenSceneGraph examples
-# [Darren 22May14]
-## Removed [Darren 3Aug15]
-##export OSG_FILE_PATH=/da/sw/osg/OpenSceneGraph-Data
-
-
 # Set definitions file for bc(1)
 if [ -f $HOME/etc/bc.defs ]; then
 	export BC_ENV_ARGS=$HOME/etc/bc.defs
