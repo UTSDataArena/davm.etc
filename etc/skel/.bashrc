@@ -7,9 +7,9 @@
 
 # Source the Data Arena bashrc files in /etc/bash/bashrc.d/
 if [ -d /etc/bash/bashrc.d ]; then
-        for sh in /etc/bash/bashrc.d/*.sh ; do
-                [ -r "$sh" ] && . "$sh"
-        done
+    for sh in /etc/bash/bashrc.d/*.sh ; do
+        [ -r "$sh" ] && . "$sh"
+    done
 fi
 unset sh
 
@@ -23,3 +23,8 @@ fi
 
 
 # Put your fun stuff here.
+
+# adding gitlab deploy keys
+if [ -f $HOME/.ssh/id_rsa_gitlab_deploy -a -x /usr/bin/keychain ]; then
+    ssh-add $HOME/.ssh/id_rsa_gitlab_deploy &> /dev/null
+fi
