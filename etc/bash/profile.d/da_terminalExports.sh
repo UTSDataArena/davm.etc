@@ -18,6 +18,3 @@
 
 # Set Good Less Settings for here
 export LESS="-R -X --quit-if-one-screen --quit-at-eof"
-
-
-

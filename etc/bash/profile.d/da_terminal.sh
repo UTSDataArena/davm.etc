@@ -11,5 +11,3 @@ if [[ "x$TERM" != "x" ]]; then
 		setterm -blength 0
 	fi
 fi
-
-

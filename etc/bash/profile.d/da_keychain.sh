@@ -28,4 +28,3 @@ if [ -f $HOME/.ssh/id_rsa -a -x /usr/bin/keychain ]; then
 	##eval `/usr/bin/keychain --eval --agents ssh $HOME/.ssh/id_rsa`
 	eval `/usr/bin/keychain --quiet --eval --agents ssh $HOME/.ssh/id_rsa`
 fi
-
