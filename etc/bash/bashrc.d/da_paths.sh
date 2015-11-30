@@ -48,7 +48,9 @@ PATH_POST_LIST="\
 /local/omegalib/install/omegalib/bin \
 /local/Equalizer/install/bin \
 /local/bino/install/bin
+/local/drishti/bin \
 "
+
 # add to front of PATH
 for P in $PATH_PRE_LIST ; do
 	if [ -d $P ]; then
