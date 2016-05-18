@@ -45,6 +45,7 @@ $HOME/bin \
 "
 
 PATH_POST_LIST="\
+/local/bin \
 /local/omegalib/install/omegalib/bin \
 /local/Equalizer/install/bin \
 /local/bino/install/bin
