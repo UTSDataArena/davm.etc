@@ -1,0 +1,19 @@
+#
+# udev rules for space navigator in the DAVM
+#
+# [Darren 15Dec16]
+#
+# NB: vrpn server uses spaceNav, but doesn't seem to detect hotplugging well. Restarting vrpnserver is
+#        a workaround.
+#
+# This creates rules for the Space Navigator and Space Navigator Wireless controllers
+
+KERNEL=="event[0-9]*", ATTRS{idProduct}=="c62[68]", ATTRS{product}=="SpaceNavigator", MODE="0664", SYMLINK+="input/spaceNav"
+KERNEL=="event[0-9]*", ATTRS{idProduct}=="c62f",    ATTRS{idVendor}=="256f",          MODE="0664", SYMLINK+="input/spaceNav"
+
+# restart vrpn server on add/remove
+KERNEL=="event[0-9]*", ATTRS{idProduct}=="c62[68]", ATTRS{product}=="SpaceNavigator", ACTION=="add", RUN+="/etc/init.d/vrpn restart"
+KERNEL=="event[0-9]*", ATTRS{idProduct}=="c62[68]", ATTRS{product}=="SpaceNavigator", ACTION=="remove", RUN+="/etc/init.d/vrpn restart"
+KERNEL=="event[0-9]*", ATTRS{idProduct}=="c62f",    ATTRS{idVendor}=="256f",          ACTION=="add", RUN+="/etc/init.d/vrpn restart"
+KERNEL=="event[0-9]*", ATTRS{idProduct}=="c62f",    ATTRS{idVendor}=="256f",          ACTION=="remove", RUN+="/etc/init.d/vrpn restart"
+

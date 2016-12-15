@@ -1,0 +1,24 @@
+#!/sbin/runscript
+# Copyright 1999-2015 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+PIDFILE=/var/run/vrpn_server.pid
+
+# need localmount udev
+# after dev-mount
+# depend() { }
+
+start() {
+        ebegin "Starting vrpn server"
+        start-stop-daemon --start --quiet --make-pidfile --pidfile "${PIDFILE}" --background \
+                --exec /local/vrpn/install/bin/vrpn_server -- -f /local/vrpn/config/davm_vrpn.cfg 3891
+        eend $?
+}
+
+stop() {
+        ebegin "Stopping vrpn server"
+        start-stop-daemon --stop --quiet --pidfile "${PIDFILE}"
+        eend $?
+}
+
