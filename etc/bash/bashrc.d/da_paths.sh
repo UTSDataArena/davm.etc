@@ -48,8 +48,9 @@ PATH_POST_LIST="\
 /local/bin \
 /local/omegalib/install/omegalib/bin \
 /local/Equalizer/install/bin \
-/local/bino/install/bin
+/local/bino/install/bin \
 /local/drishti/bin \
+/local/processing/processing-3.3 \
 "
 
 # add to front of PATH
