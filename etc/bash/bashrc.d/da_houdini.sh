@@ -2,41 +2,31 @@
 # Data Arena config for Houdini
 #
 
+export OLD_PS1=$PS1
 # define henv
 
-function henv() {
+function set_henv() {
         #
         # Choose which version of Houdini to source (or default to latest)
         #
         case $1 in
-        12*)
-                # Houdini 12.5
-                HOUDINI_INSTALL_LOCATION=/opt/hfs12.5.483
-                ;;
-        134*)
-                # Houdini 13
-                HOUDINI_INSTALL_LOCATION=/opt/hfs13.0.401
-                ;;
-        13*)
-                # Houdini 13
-                HOUDINI_INSTALL_LOCATION=/opt/hfs13.0.547
-                ;;
-        1402)
-                # Houdini 14.0.201.13
-                HOUDINI_INSTALL_LOCATION=/opt/hfs14.0.201.13
-                ;;
-        14*)
-                # Houdini 14
-                HOUDINI_INSTALL_LOCATION=/opt/hfs14.0.359
-                ;;
-        15*)
-                # Houdini 15
-                HOUDINI_INSTALL_LOCATION=/opt/hfs15.0.244.16
+        16*)
+                # Houdini 16
+                HOUDINI_INSTALL_LOCATION=/opt/hfs16.5.536
                 ;;
         *)
                 # Default Latest Version
                 # HOUDINI_INSTALL_LOCATION=/opt/hfs14.0.359
-                HOUDINI_INSTALL_LOCATION=/opt/hfs15.0.244.16
+                Latest=`( ls -1d /opt/hfs* 2> /dev/null || echo none ) | tail -n1`
+                if [[ "$Latest" == "none" ]]
+                then
+                    echo "No versions of Houdini found in /opt."
+                    unset Latest
+                    return
+                else
+                    HOUDINI_INSTALL_LOCATION=$Latest
+                    unset Latest
+                fi
                 ;;
         esac
 
@@ -50,3 +40,7 @@ function henv() {
         unset CurrentDirectory
 }
 
+function henv() {
+    set_henv $*;
+    PS1="\[\e[0;31m\](H ${HFS#/opt/hfs}) $OLD_PS1"
+}
